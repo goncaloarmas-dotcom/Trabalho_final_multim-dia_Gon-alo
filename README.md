@@ -116,9 +116,7 @@ O primeiro pedido à IA foi para desenvolver uma aplicação em Python com Strea
 
 ### Prompt para conversão Web/HTML e Python
 
-Ao longo do desenvolvimento, a aplicação foi adaptada de uma versão inicial em Streamlit para uma aplicação web com HTML, CSS e JavaScript. Mais tarde, foi pedida a conversão da lógica dos jogos para Python e a adaptação para publicação no GitHub Pages, através do Pyodide.
-
-O README anterior não guardava a transcrição integral destes pedidos. Para não apresentar uma reconstrução como se fosse o texto original, fica registado o conteúdo do pedido tal como estava documentado:
+Ao longo do desenvolvimento, a aplicação foi adaptada de uma versão inicial em Streamlit para uma aplicação web com HTML, CSS e JavaScript. Mais tarde, foi pedida a conversão da lógica dos jogos para Python e a adaptação para publicação no GitHub Pages, através do Pyodide:
 
 > Converter o projeto de JavaScript para Python, mantendo o design, a estrutura e as funcionalidades. Utilizar o máximo de Python possível: a mecânica dos jogos, a validação das respostas, as pontuações e a classificação devem ficar em Python; o JavaScript deve ficar responsável pelas interações do navegador. Adaptar também a solução para funcionar no GitHub Pages, recorrendo ao Pyodide.
 
