@@ -52,7 +52,6 @@ A sequência é mostrada com animações CSS e os botões só ficam ativos quand
 - Recorde pessoal guardado no navegador (cookie).
 - Nota a esclarecer que a classificação mede apenas o desempenho nos jogos, não a inteligência nem o QI.
 
-**Limitações conhecidas (por não haver JavaScript):** o cronómetro mostra segundos inteiros enquanto corre; os sons tocam depois de cada ação (e não durante a animação da sequência); alguns navegadores bloqueiam a reprodução automática de som.
 
 ## 4. Instalação e execução
 
