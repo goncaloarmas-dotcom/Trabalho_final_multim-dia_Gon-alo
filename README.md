@@ -94,7 +94,7 @@ Foi pedido à IA que interligasse corretamente os ficheiros do projeto, de modo 
 
 ### Dificuldades e erros corrigidos com a IA
 
-Uma das principais dificuldades técnicas surgiu quando os ficheiros HTML, CSS e JavaScript não estavam corretamente interligados. Por esse motivo, a página não carregava alguns recursos e partes do código procuravam elementos ou ficheiros que não existiam.
+Uma das principais dificuldades técnicas surgiu quando os ficheiros HTML, CSS, JavaScript e Python não estavam corretamente interligados. Por esse motivo, a página não carregava alguns recursos e partes do código procuravam elementos ou ficheiros que não existiam.
 
 Com o apoio da IA, a estrutura foi reorganizada e as ligações entre os ficheiros foram corrigidas. Durante a evolução do projeto, a lógica dos jogos, os dados dos desafios e a validação das respostas foram também organizados em módulos Python separados. Foram ainda acrescentados testes automáticos e corrigida uma situação em que, ao iniciar um novo jogo, continuava a aparecer uma mensagem da partida anterior no Logic Challenge.
 
