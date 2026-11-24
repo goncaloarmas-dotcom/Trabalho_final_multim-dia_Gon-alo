@@ -1,6 +1,0 @@
-[project]
-name = "brain-training-hub"
-version = "2.0.0"
-description = "Brain Training Hub - três jogos de raciocínio, reflexos e memória (Python + HTML + CSS)"
-requires-python = ">=3.11"
-dependencies = []
