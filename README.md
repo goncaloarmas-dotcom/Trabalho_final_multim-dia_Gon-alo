@@ -8,9 +8,6 @@
 | **Turma** | 12A3 |
 | **Link da Aplicação Web** | https://goncaloarmas-dotcom.github.io/Projeto_Multimedia/ |
 
-> **Nota sobre o link:** o GitHub Pages só serve ficheiros estáticos e não executa Python. Para a versão em Python correr online, é preciso alojá-la num serviço que execute Python. Localmente, funciona com os passos da secção 4.
-
----
 
 ## 1. Visão geral do projeto
 
