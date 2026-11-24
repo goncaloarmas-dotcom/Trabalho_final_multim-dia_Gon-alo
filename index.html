@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Treina a tua lógica e rapidez com o Brain Training Hub.">
+<title>Brain Training Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div id="scare" class="scare" aria-hidden="true" hidden><span>💀</span></div>
+
+<header class="top">
+  <a class="brand" href="#" id="brand"><span class="logo">🧠</span> Brain Training Hub</a>
+  <span class="pill" title="Melhor pontuação neste navegador">Recorde <strong id="best">0</strong>/30</span>
+</header>
+
+<ol id="stepper" class="stepper" aria-label="Progresso" hidden>
+  <li>Lógica</li><li>Reação</li><li>Memória</li><li>Final</li>
+</ol>
+
+<main>
+  <!-- Início -->
+  <section id="page-home" class="page">
+    <div class="hero">
+      <h1>Pensa depressa.<br>Pensa bem.</h1>
+      <p>Três jogos curtos de raciocínio, reflexos e memória. No fim, vês quanto pontuaste em 30.</p>
+      <button id="start-button" class="btn" type="button">Começar o desafio</button>
+    </div>
+
+    <div class="cards">
+      <article class="card"><span class="ico">🎯</span><h3>Logic Challenge</h3>
+        <p>Descobre um número entre 1 e 100 em dez tentativas. Menos tentativas, mais pontos.</p><b>até 10 pts</b></article>
+      <article class="card"><span class="ico">💣</span><h3>Reaction Challenge</h3>
+        <p>Cinco desafios, dez segundos cada. Quando o tempo acaba, a bomba explode.</p><b>2 pts por resposta</b></article>
+      <article class="card"><span class="ico">🎵</span><h3>Memory Sequence</h3>
+        <p>Observa a sequência de cores e sons e repete-a. Cada ronda é mais longa.</p><b>1 pt por ronda</b></article>
+    </div>
+  </section>
+
+  <!-- Jogo 1 -->
+  <section id="page-logic" class="page" hidden>
+    <h2>Logic Challenge</h2>
+    <p class="sub">Adivinha o número secreto entre 1 e 100.</p>
+
+    <div class="panel">
+      <div class="range"><div id="range-fill"></div></div>
+      <p id="range-text" class="range-text"></p>
+      <div id="dots" class="dots" aria-label="Tentativas"></div>
+
+      <form id="logic-form" class="row">
+        <input id="logic-guess" type="number" min="1" max="100" step="1" inputmode="numeric" placeholder="O teu palpite" required aria-label="Palpite">
+        <button class="btn" type="submit">Tentar</button>
+      </form>
+      <p id="logic-feedback" class="feedback" role="status" hidden></p>
+      <div id="history" class="chips"></div>
+    </div>
+
+    <div id="logic-finished" hidden>
+      <button id="to-quiz-button" class="btn wide" type="button">Continuar para o Reaction Challenge</button>
+    </div>
+  </section>
+
+  <!-- Jogo 3 -->
+  <section id="page-reaction" class="page" hidden>
+    <h2>Reaction Challenge</h2>
+    <p id="reaction-progress" class="sub"></p>
+
+    <div id="reaction-box" class="panel timer-panel">
+      <div id="timer" class="timer" role="timer" aria-live="off">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="track" cx="50" cy="50" r="44"/>
+          <circle id="ring" class="fill" cx="50" cy="50" r="44"/>
+        </svg>
+        <span id="timer-value">10.0</span>
+        <i id="timer-icon" aria-hidden="true">⏱️</i>
+      </div>
+
+      <div id="explosion" class="explosion" hidden></div>
+
+      <form id="reaction-form">
+        <h3 id="reaction-question" class="question"></h3>
+        <div class="row">
+          <input id="reaction-answer" type="text" autocomplete="off" placeholder="A tua resposta" aria-label="Resposta">
+          <button class="btn" type="submit">Responder</button>
+        </div>
+      </form>
+      <p id="reaction-feedback" class="feedback" role="status" hidden></p>
+    </div>
+  </section>
+
+  <!-- Jogo 4 -->
+  <section id="page-memory" class="page" hidden>
+    <h2>Memory Sequence</h2>
+    <p id="mem-status" class="sub"></p>
+    <div class="panel">
+      <div id="pads" class="pads">
+        <button class="pad" style="--c:#22c55e" aria-label="Verde"></button><button class="pad" style="--c:#ef4444" aria-label="Vermelho"></button>
+        <button class="pad" style="--c:#facc15" aria-label="Amarelo"></button><button class="pad" style="--c:#3b82f6" aria-label="Azul"></button>
+      </div>
+      <button id="mem-start" class="btn wide" type="button">Começar</button>
+    </div>
+    <button id="mem-next" class="btn wide" type="button" hidden>Ver resultado final</button>
+  </section>
+
+  <!-- Resultados -->
+  <section id="page-results" class="page" hidden>
+    <h2>Resultado final</h2>
+
+    <div class="panel results">
+      <div class="score-ring">
+        <svg viewBox="0 0 160 160" aria-hidden="true">
+          <circle class="track" cx="80" cy="80" r="70"/>
+          <circle id="final-ring" class="fill" cx="80" cy="80" r="70"/>
+        </svg>
+        <div><strong id="final-total">0</strong><span>de 30</span></div>
+      </div>
+      <p id="final-rating" class="rating"></p>
+      <p id="final-record" class="record" hidden></p>
+
+      <div id="breakdown" class="breakdown"></div>
+    </div>
+
+    <details class="panel"><summary>Rever respostas</summary><div id="review"></div></details>
+
+    <p class="notice">Esta classificação mede apenas o desempenho nestes jogos. Não avalia cientificamente a inteligência nem o QI.</p>
+    <button id="play-again-button" class="btn wide" type="button">Jogar novamente</button>
+  </section>
+</main>
+
+<footer>Brain Training Hub · Treina a tua mente ao teu ritmo.</footer>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
