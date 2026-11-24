@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Treina a tua lógica e rapidez com o Brain Training Hub.">
+$head_extra
+<title>Brain Training Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+$scare
+
+<header class="top">
+  <a class="brand" href="/reset"><span class="logo">🧠</span> Brain Training Hub</a>
+  <span class="pill" title="Melhor pontuação neste navegador">Recorde <strong>$best</strong>/30</span>
+</header>
+
+$stepper
+
+<main>
+$content
+</main>
+
+<footer>Brain Training Hub · Treina a tua mente ao teu ritmo.</footer>
+$audio
+<!-- Os blocos <template> abaixo são as páginas (início, jogos e resultados). O servidor Python (app.py) usa-os para montar cada ecrã. -->
+<template id="home">
+  <section class="page">
+    <div class="hero">
+      <h1>Pensa depressa.<br>Pensa bem.</h1>
+      <p>Três jogos curtos de raciocínio, reflexos e memória. No fim, vês quanto pontuaste em 30.</p>
+      <form method="post" action="/start">
+        <button class="btn" type="submit">Começar o desafio</button>
+      </form>
+    </div>
+
+    <div class="cards">
+      <article class="card"><span class="ico">🎯</span><h3>Logic Challenge</h3>
+        <p>Descobre um número entre 1 e 100 em dez tentativas. Menos tentativas, mais pontos.</p><b>até 10 pts</b></article>
+      <article class="card"><span class="ico">💣</span><h3>Reaction Challenge</h3>
+        <p>Cinco desafios, dez segundos cada. Quando o tempo acaba, a bomba explode.</p><b>2 pts por resposta</b></article>
+      <article class="card"><span class="ico">🎵</span><h3>Memory Sequence</h3>
+        <p>Observa a sequência de cores e repete-a. Cada ronda é mais longa.</p><b>1 pt por ronda</b></article>
+    </div>
+  </section>
+</template>
+
+<template id="logic">
+  <section class="page">
+    <h2>Logic Challenge</h2>
+    <p class="sub">Adivinha o número secreto entre 1 e 100.</p>
+
+    <div class="panel">
+      <div class="range"><div id="range-fill" style="left:$range_left%;width:$range_width%"></div></div>
+      <p class="range-text">$range_text</p>
+      <div class="dots" aria-label="Tentativas">$dots</div>
+
+      $form
+      $feedback
+      <div class="chips">$history</div>
+    </div>
+
+    $finished
+  </section>
+</template>
+
+<template id="reaction">
+  <section class="page">
+    <h2>Reaction Challenge</h2>
+    <p class="sub">Desafio $number de 5 · $points pontos</p>
+
+    <div class="panel timer-panel $panel_class">
+      <div class="timer $timer_class" role="timer" style="--off:$offset">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="track" cx="50" cy="50" r="44"/>
+          <circle class="fill" cx="50" cy="50" r="44"/>
+        </svg>
+        <span class="timer-value">$timer_text</span>
+        $icons
+      </div>
+
+      $explosion
+
+      $body
+    </div>
+  </section>
+</template>
+
+<template id="memory">
+  <section class="page">
+    <h2>Memory Sequence</h2>
+    <p class="sub mem-status">$status</p>
+    <div class="panel">
+      <div class="pads">
+$pads
+      </div>
+      $start
+    </div>
+    $next
+  </section>
+</template>
+
+<template id="results">
+  <section class="page">
+    <h2>Resultado final</h2>
+
+    <div class="panel results">
+      <div class="score-ring">
+        <svg viewBox="0 0 160 160" aria-hidden="true">
+          <circle class="track" cx="80" cy="80" r="70"/>
+          <circle class="fill final-ring" cx="80" cy="80" r="70" style="--off:$offset"/>
+        </svg>
+        <div><strong>$total</strong><span>de 30</span></div>
+      </div>
+      <p class="rating">$rating</p>
+      $record
+
+      <div class="breakdown">
+$breakdown
+      </div>
+    </div>
+
+    <details class="panel"><summary>Rever respostas</summary><div id="review">$review</div></details>
+
+    <p class="notice">Esta classificação mede apenas o desempenho nestes jogos. Não avalia cientificamente a inteligência nem o QI.</p>
+    <form method="post" action="/reset">
+      <button class="btn wide" type="submit">Jogar novamente</button>
+    </form>
+  </section>
+</template>
+</body>
+</html>
