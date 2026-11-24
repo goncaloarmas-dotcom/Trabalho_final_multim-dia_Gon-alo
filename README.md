@@ -23,7 +23,7 @@ O Brain Training Hub é um dashboard web com três jogos curtos de raciocínio, 
 | **HTML** | Estrutura das páginas (`index.html`) |
 | **CSS** | Design, layout, cronómetro circular, animações (explosão, susto, sequência de cores) e responsividade |
 
-Não há JavaScript nem dependências externas: o servidor usa apenas a biblioteca padrão do Python (`http.server`, `string.Template`, `wave`, etc.).
+
 
 ## 3. Jogos e funcionalidades
 
